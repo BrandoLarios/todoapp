@@ -6,6 +6,7 @@ class ListsController < ApplicationController
   #before_action :find_list, except: [:index, :new, :create #Niega en estas otras
   
   def index
+    @lists = List.all
   end
   
   def new
@@ -15,6 +16,7 @@ class ListsController < ApplicationController
   def create
     List.create(list_params)
     #render json: list_params
+    redirect_to :action => :index
   end
     
   def edit
@@ -30,7 +32,7 @@ class ListsController < ApplicationController
   
   def destroy
     @list.destroy
-    redirect_to :action => :new
+    redirect_to :action => :index
   end
   
   private
