@@ -24,7 +24,7 @@ class ListsController < ApplicationController
   
   def update
     @list.update(list_params)
-    redirect_to @list
+    redirect_to :action => :index
   end
   
   def show
